@@ -1,0 +1,107 @@
+# ============================
+# .NET / C# .gitignore
+# ============================
+
+# Build outputs
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Bb]uild/
+bld/
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.csproj.user
+*.vsidx
+*.sqlite
+*.slnx.sqlite
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# Gemini / AI agent artifacts
+.agents/
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
+
+# NuGet
+*.nupkg
+*.snupkg
+**/packages/*
+!**/packages/build/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# .NET generated files
+*.dll
+*.exe
+*.pdb
+*.cache
+*.resources
+*.nupkg
+
+# Test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+*.trx
+*.coverage
+*.coveragexml
+coverage/
+TestResults/
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+~$*
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+ehthumbs_vista.db
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# Environment files
+.env
+.env.*
+!*.env.example
+local.settings.json
+appsettings.Local.json
+appsettings.Development.json
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Publish profiles
+[Pp]ublish/
+publish/
+
+# Windows specific
+*.lnk

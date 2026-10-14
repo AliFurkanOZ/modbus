@@ -1,0 +1,4 @@
+.vs/
+*.vsidx
+*.sqlite
+*.slnx.sqlite

@@ -1,0 +1,69 @@
+<Window x:Class="Modbus.App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:Modbus.App.ViewModels"
+        xmlns:views="clr-namespace:Modbus.App.Views"
+        mc:Ignorable="d"
+        Title="Modbus Communication Suite"
+        Width="1500"
+        Height="920"
+        MinWidth="1250"
+        MinHeight="760"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource AppBackgroundBrush}">
+
+    <Window.DataContext>
+        <vm:MainViewModel />
+    </Window.DataContext>
+
+    <!-- ============================================================ -->
+    <!-- ANA SHELL: DataTrigger ile görünüm değiştirme                -->
+    <!-- ============================================================ -->
+
+    <Grid>
+        <!-- Rol Seçim Ekranı -->
+        <views:RoleSelectionView DataContext="{Binding}">
+            <views:RoleSelectionView.Style>
+                <Style TargetType="views:RoleSelectionView">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding CurrentView}" Value="{x:Static vm:AppView.RoleSelection}">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </views:RoleSelectionView.Style>
+        </views:RoleSelectionView>
+
+        <!-- Master Modu Ekranı -->
+        <views:MasterView DataContext="{Binding}">
+            <views:MasterView.Style>
+                <Style TargetType="views:MasterView">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding CurrentView}" Value="{x:Static vm:AppView.Master}">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </views:MasterView.Style>
+        </views:MasterView>
+
+        <!-- Slave Modu Ekranı -->
+        <views:SlaveView DataContext="{Binding}">
+            <views:SlaveView.Style>
+                <Style TargetType="views:SlaveView">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding CurrentView}" Value="{x:Static vm:AppView.Slave}">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </views:SlaveView.Style>
+        </views:SlaveView>
+    </Grid>
+
+</Window>
